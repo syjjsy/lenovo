@@ -1,0 +1,31 @@
+pathl='F:\731\data\z\';
+pathr='F:\731\data\y\';
+outpathl='F:\731\rectifydata\z\';
+outpathr='F:\731\rectifydata\y\';
+fileForm = '*.bmp';
+load('stereoParams');
+files1 = dir(fullfile(pathl,fileForm)); 
+len1 = size(files1,1);
+files2 = dir(fullfile(pathr,fileForm)); 
+len2 = size(files2,1);
+for i=1:len1
+   filename1 = strcat(pathl,files1(i).name);
+   filename2 = strcat(pathr,files1(i).name);
+   splitedStr = strsplit(filename1,'\');
+   outfile = cell2mat(splitedStr(end));
+   initialImage1 = imread(filename1);
+   initialImage2 = imread(filename2);
+   [picr,picl]=rectifyStereoImages(initialImage2,initialImage1,stereoParams);
+   [rm,rn]=size(picr);
+   [lm,ln]=size(picl);
+   picr=picr(:,(rn-rm)/2+1:(rn+rm)/2);
+   picl=picl(:,(rn-rm)/2+1:(rn+rm)/2);
+   picr=imresize(picr,[512 512]);
+   picl=imresize(picl,[512 512]);
+   picr=mat2gray(picr);
+   picl=mat2gray(picl);
+   finalPath1 = strcat(outpathl,outfile);
+   imwrite(picl,finalPath1);
+   finalPath2 = strcat(outpathr,outfile);
+   imwrite(picr,finalPath2);
+end
