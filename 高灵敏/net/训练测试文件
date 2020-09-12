@@ -1,0 +1,9 @@
+训练: train.py
+
+from models_resnetx import *#######################################
+self.model = Resnet50_md(1)#####################################
+
+
+test : test03.py
+data1:端到端-butongweizhi
+data2:端到端-butongweizhi-2000

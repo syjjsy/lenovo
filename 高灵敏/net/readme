@@ -1,0 +1,33 @@
+train.py, test03.py
+"model2pose-butongweizhi" in 0114_data_cpt.. and xiaoguo256 they have the 85pixels and from 1024*1 data to 32*32 input and 256*256(32*8) output ,in models_resnetx line 140 return 0.3 * self.relu(x)
+
+0113_data_cpt... in model256 and xiaoguo256 they have the 85pixels and from 1024*1 data to 32*32 input and 256*256(32*8) output ,but it is trained in the same day as 0219_data_cpt... and 0218_data_cpt...,so they can be compare ,but 0112_data_cpt..is trained early than the others,so may not suitable as 0113_data_cpt...in models_resnetx line 140 return 0.7 * self.relu(x)
+
+0114_data_cpt... is same as model2pose-butongweizh.,it try to reproduce the 0112_data,because 0112_data is far away from now,so
+in models_resnetx line 140 return 0.3 * self.relu(x)
+
+train_down.py, test03_down.py
+0219_data_cpt... in model256 and xiaoguo80down they have the same 85pixels and 576*1 from the front of 1024*1 data to 24*24 input and 192*192(24*8) output, the changes in the code is in  train_down.py line 213 about "downsize" and line 239-241 and data_loder.py line 53-54 about image resize  return 0.7 * self.relu(x)
+
+0218_data_cpt... in model256 and xiaoguo80down they have the same 85pixels and 784*1 from the front of 1024*1 data to 28*28 input and 224*224(28*8) output, the changes in the code is in  train_down.py line 213 about "downsize" and line 239-241 and data_loder.py line 53-54 about image resize  return 0.7 * self.relu(x)   
+0218_dataTO_512_cpt_...in model256 and xiaoguo80down they have the same 85pixels and 784*1 from the front of 1024*1 data to 28*28 input and 256*256(same as 1024*1 's output) output, the changes in the code is in  train_down.py line 213 about "downsize" and line 239-241 and F.interpolate in line 262 models_resnetx_down.py  return 0.7 * self.relu(x)
+
+0221_dataTO_512_cpt...  24*24 return 0.3 * self.relu(x)
+0220_dataTO_512_cpt...  24*24 return 0.7 * self.relu(x)
+
+
+0225_data_cpt... they have the 85pixels and from 1024*1 data to 32*32 input and 256*256(32*8) output ,in models_resnetx line 140 return 0.3 * self.relu(x),the diffrent between 0114_data_cpt... is dataset from 1500 to 2000,but the xiaoguo is not good as before
+
+
+/model2pose-butongweizhi/0302_data_cpt_... 2000data orginal net try to get the same good as 1000data.learning rate is 3e-4
+/model2pose-butongweizhi/0303_data_cpt_... 2000data orginal net try to get the same good as 1000data.learning rate is 1e-3
+/model2pose-butongweizhi/0304_data_cpt_... 2000data orginal net try to get the same good as 1000data.learning rate is 1e-3 with no decay
+
+/model2pose-butongweizhi/0305_data_cpt_... 2000data wide the net two resnet 50 to one net
+/model2pose-butongweizhi/0306_data_cpt_... 2000data wide the net add psp to test wide net
+because the code wrong,so next train again
+
+/model2pose-butongweizhi/0311_data_cpt_... 2000data wide the net two resnet 50 to one net
+/model2pose-butongweizhi/0312_data_cpt_... 2000data wide the net add psp to test wide net
+
+
