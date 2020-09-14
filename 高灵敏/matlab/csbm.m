@@ -14,8 +14,8 @@ for i=1:len1
     y = a(1:(round(N*subrate)));
     y=y';
     M = length(y);
-    load 'E:\glmdata\glmatlab\4096.mat'%±àÂëmat
-    Phi = iiss(1:M,:);
+    load 'E:\glmdata\glmatlab\CSPhimask64.mat'%±àÂëmat
+    Phi = Phi(1:M,:);
     x0 = Phi\y;
     estIm = tvqc_logbarrier(x0, Phi, [], y, epsilon,1e-4,2);
     xtvqc = reshape(estIm,sqrt(N),sqrt(N));

@@ -17,7 +17,7 @@ for num=1:length(na)
    ming=num2str(ming);
    p3=strcat(path_save,ming,'.h5');
    dn=strcat('/',ming);
-   if my_width==1024
+   if my_hight==1024
        h5create(p3,dn,[my_hight,my_width]);
    h5write(p3,dn,I);
    end
